@@ -42,7 +42,7 @@ Only the following libraries are used as per project requirements:
 ```sh
     (Part of the answers)
     x0 = [2.0, 2.0]
-    Value v(0,x) = 2.3822**
+    Value v(0,x) = 2.3822
     Mean control: tensor([ -2.5540, -10.3992], dtype=torch.float64)
     Sampled control: tensor([ -3.0248, -10.3863], dtype=torch.float64)
 ```
