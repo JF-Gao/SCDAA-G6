@@ -232,6 +232,9 @@ class LQRMonteCarlo(StrictLQR):
         plt.legend()
         plt.show()
 
+        # Save images to the left folder for review
+        plt.savefig("plot_1-Exercise 1.png")
+
     def run_experiment_2(self, fixed_time_steps, num_samples_list):
         """
         Experiment 2: Fix time step, vary number of Monte Carlo samples
@@ -253,6 +256,9 @@ class LQRMonteCarlo(StrictLQR):
         plt.grid(True, which='both', linestyle='--', linewidth=0.5)
         plt.legend()
         plt.show()
+
+        # Save images to the left folder for review
+        plt.savefig("plot_2-Exercise 1.png")
 
 
 # Example usage for Exercise 1.2

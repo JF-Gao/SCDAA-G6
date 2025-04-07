@@ -111,6 +111,9 @@ class SupervisedActor:
         plt.tight_layout()
         plt.show()
 
+        # Save images to the left folder for review
+        plt.savefig("plot_1-Exercise 4.png")
+
 # === 7. Compare strict vs actor trajectories from 4 x₀ ===
 def plot_strict_vs_actor_trajectories(actor_net):
     x0_list = [
@@ -159,6 +162,9 @@ def plot_strict_vs_actor_trajectories(actor_net):
     plt.suptitle("Strict vs Actor Trajectories")
     plt.tight_layout()
     plt.show()
+
+    # Save images to the left folder for review
+    plt.savefig("plot_1-Exercise 4.png")
 
 # === 8. Print value function and controls at t=0 ===
 def print_value_and_controls(actor_net):

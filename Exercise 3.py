@@ -148,6 +148,9 @@ plt.ylabel("Loss")
 plt.grid(True)
 plt.show()
 
+# Save images to the left folder for review
+plt.savefig("plot_1-Exercise 3.png")
+
 # === Evaluate maximum value function error over grid (for reporting) ===
 def evaluate_max_error(model):
     t_test = torch.tensor([0.0, 1/6, 1/3, 0.5])  # 4 evaluation time points

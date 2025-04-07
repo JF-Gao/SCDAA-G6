@@ -104,6 +104,9 @@ class SoftLQR:
         plt.suptitle("Strict vs Soft LQR Trajectories")
         plt.tight_layout()
         plt.show()
+        
+        # Save images to the left folder for review
+        plt.savefig("plot_1-Exercise 2.png")
 
     def print_value_and_controls(self, x0_list):
         # For each x0, print value function, mean and sampled controls
