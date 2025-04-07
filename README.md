@@ -47,9 +47,9 @@ Only the following libraries are used as per project requirements:
     Sampled control: tensor([ -3.0248, -10.3863], dtype=torch.float64)
 ```
 - **Output Graphs**
-  - **See plot_1-Exercise 2 in the left-hand folder**
+  - See plot_1-Exercise 2 in the left-hand folder
 4. **Conclusion**
-  All you need to do is either click the Run button directly in codespace to get the values and images, or save the code locally and run it directly to get the results.
+  - All you need to do is either click the Run button directly in codespace to get the values and images, or save the code locally and run it directly to get the results.
 
 
 ## **Contributors & Contributions**
