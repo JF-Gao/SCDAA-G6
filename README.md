@@ -1,52 +1,19 @@
-
-  
-Jiaqi Shi  s2751979
-
-
-# README - Exercise 1.1: Solving LQR using Riccati ODE
+# README
 
 ## Overview
-This section of the project implements a **Linear Quadratic Regulator (LQR)** solver using the Riccati differential equation. The objective is to compute the **value function** and **optimal control policy** for a given **linear system** over a finite time horizon.
+This repository contains an end-to-end implementation of an actor-critic reinforcement learning algorithm for solving a continuous-time **soft LQR** problem, based on the coursework specification. 
 
-The implementation includes:
-1. **Numerical solution of the Riccati ODE** to obtain the time-dependent matrix \( S(t) \).
-2. **Computation of the value function** \( v(t, x) = x^T S(t) x \).
-3. **Derivation of the optimal control** \( a^*(t, x) = -D^{-1} M^T S(t) x \).
-4. **Graphical visualization** of results including:
-   - Evolution of Riccati matrix elements over time.
-   - Value function trajectory.
-   - Optimal control trajectory.
+The project is divided into five main parts, progressing from solving the strict LQR via Riccati equations to implementing and validating the actor-critic learning loop.
 
-## Implementation Details
+Each part of the code is run locally via pycharm. Specific code names and partial output images can be seen in the folder on the left.
 
-### **Mathematical Formulation**
-We consider the controlled system:
-\[
-    dX_s = (H X_s + M \alpha_s) ds + \sigma dW_s,
-\]
-where \( X_s \) represents the state variables and \( \alpha_s \) is the control input. The objective is to minimize the cost functional:
-\[
-    J^\alpha (t, x) = \mathbb{E}^{t,x} \left[ \int_t^T \left( X_s^T C X_s + \alpha_s^T D \alpha_s \right) ds + X_T^T R X_T \right].
-\]
-
-Using the **Bellman Equation**, the optimal solution is characterized by the Riccati ODE:
-\[
-    S'(t) = S(t) M D^{-1} M^T S(t) - H^T S(t) - S(t) H - C, \quad S(T) = R.
-\]
-
-The optimal control law is derived as:
-\[
-    \alpha^*(t, x) = -D^{-1} M^T S(t) x.
-\]
-
-### **Code Structure**
-The implementation consists of a **Python class** `LQR_Solver`, which provides:
-- **`solve_riccati()`**: Solves the Riccati equation numerically using `solve_ivp`.
-- **`compute_value_function()`**: Computes \( v(t, x) \) for given time and state.
-- **`compute_optimal_control()`**: Computes \( a^*(t, x) \) based on \( S(t) \).
-- **`plot_riccati_solution()`**: Plots the evolution of Riccati matrix elements.
-- **`plot_value_function()`**: Plots \( v(t, x) \) over time.
-- **`plot_optimal_control()`**: Plots the optimal control trajectory.
+### **File Structure**
+Exercise_1.py        # Strict LQR: Riccati solution + Monte Carlo (Ex. 1.1, 1.2)
+Exercise_2.py        # Soft LQR: Entropy-regularized control & trajectory sim (Ex. 2.1)
+Exercise_3.py        # Critic-only learning using optimal policy (Ex. 3.1)
+Exercise_4.py        # Actor-only supervised training using value function (Ex. 4.1)
+Exercise_5.py        # Full actor-critic algorithm (Ex. 5.1)
+plot                 # Each plot corresponds to a code output image of the exercise.
 
 ### **Libraries Used**
 Only the following libraries are used as per project requirements:
@@ -55,7 +22,8 @@ Only the following libraries are used as per project requirements:
 - `matplotlib` (Plotting)
 - `torch` (Tensor computations)
 
-### **How to Run the Code**
+
+## **How to Run the Code**
 1. **Clone the Git repository**
 ```sh
     git clone <repository-link>
@@ -63,39 +31,33 @@ Only the following libraries are used as per project requirements:
 ```
 2. **Run the Python script**
 ```sh
-    python function.py
+    python Exercise_1.py   # Strict LQR
+    python Exercise_2.py   # Soft LQR
+    python Exercise_3.py   # Critic-only
+    python Exercise_4.py   # Actor-only
+    python Exercise_5.py   # Actor-Critic
+
 ```
-3. **Expected Output:**
+3. **Expected Output——Example for Exercise 2:**
 - **Numerical values for value function and optimal control:**
-  ```sh
-  Value Function at t=0.5, x=[[1.0, 0.5]] -> v(t, x) = [1.7642531]
-  Optimal Control at t=0.5, x=[[1.0, 0.5]] -> a*(t, x) = [[-0.48849595]]
-  ```
-- **Three plots should appear:**
-  - **Convergence of Riccati solution** (S-matrix elements over time)
-  - **Evolution of Value Function**
-  - **Evolution of Optimal Control**
+    (Part of the answers)
+    x0 = [2.0, 2.0]
+    Value v(0,x) = 2.3822
+    Mean control: tensor([ -2.5540, -10.3992], dtype=torch.float64)
+    Sampled control: tensor([ -3.0248, -10.3863], dtype=torch.float64)
 
-### **Example Output Graphs**
-1. **Riccati Matrix Convergence:**
-   ![Riccati Matrix](images/riccati_solution.png)
-2. **Value Function Evolution:**
-   ![Value Function](images/value_function.png)
-3. **Optimal Control Evolution:**
-   ![Optimal Control](images/optimal_control.png)
+- **Output Graphs**
+  - **See plot_1-Exercise 2 in the left-hand folder**
 
-### **Contributors & Contributions**
-| Name | Student Number | Contribution |
-|------|---------------|--------------|
-| A. Student | 123456 | Riccati ODE Solver |
-| B. Student | 789012 | Value Function Computation & Plotting |
-| C. Student | 345678 | Optimal Control Computation & Plotting |
+4. **Conclusion**
+  All you need to do is either click the Run button directly in codespace to get the values and images, or save the code locally and run it directly to get the results.
 
-### **Remarks**
-- The code is structured to allow easy modifications for **higher-dimensional** LQR problems.
-- The **convergence of Riccati elements** aligns with theoretical expectations from optimal control theory.
-- The **optimal control trajectory** follows an expected behavior of stabilizing the system over time.
 
----
-✅ **This README provides a clear guide for understanding and reproducing the results of Exercise 1.1.** If you encounter any issues, please refer to the repository documentation or contact the contributors. 🚀
+## **Contributors & Contributions**
+|    Name     | Student Number | Contribution |
+|-------------|----------------|--------------|
+|  Jiaqi Shi  |    s2751979    |     1/3      |
+| Jinfeng Gao |    s2694132    |     1/3      |
+|  Junda Lu   |    s2656307    |     1/3      |
 
+All members were involved in writing all the code for the five exercises as well as the reports, so the contributions are equal.

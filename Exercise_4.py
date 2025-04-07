@@ -164,7 +164,7 @@ def plot_strict_vs_actor_trajectories(actor_net):
     plt.show()
 
     # Save images to the left folder for review
-    plt.savefig("plot_1-Exercise 4.png")
+    plt.savefig("plot_2-Exercise 4.png")
 
 # === 8. Print value function and controls at t=0 ===
 def print_value_and_controls(actor_net):

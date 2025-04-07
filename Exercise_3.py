@@ -113,7 +113,6 @@ for step in range(steps):
         t_seq, x_seq, a_seq, f_seq, gT = generate_trajectory()
         for n in range(N):
             v_pred = model(t_seq[n:n+1], x_seq[n:n+1])   # v(t_n, x_n)
-            print(v_pred.shape)
             logp = torch.sum(a_seq[n:]**2, dim=1)        # Approximation of log π
             target = torch.sum(f_seq[n:] + tau * logp) * dt + gT
             loss += N * (v_pred - target) ** 2           # Sum-based loss scaled by N
@@ -128,8 +127,8 @@ for step in range(steps):
         best_loss = loss.item()
         best_model = model.state_dict()
 
-    if step % 500 == 0:
-        print(f"Step {step}, Loss = {loss.item():.4e}")
+    if step % 100 == 0:
+        print(f"Step {step}/{steps}, Loss = {loss.item():.4e}")
 
 # === Plot smoothed training loss (log scale) ===
 def smooth(y, alpha=0.95):
