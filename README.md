@@ -36,19 +36,18 @@ Only the following libraries are used as per project requirements:
     python Exercise_3.py   # Critic-only
     python Exercise_4.py   # Actor-only
     python Exercise_5.py   # Actor-Critic
-
 ```
 3. **Expected Output——Example for Exercise 2:**
 - **Numerical values for value function and optimal control:**
-    **(Part of the answers)**
-    **x0 = [2.0, 2.0]**
-    **Value v(0,x) = 2.3822**
-    **Mean control: tensor([ -2.5540, -10.3992], dtype=torch.float64)**
-    **Sampled control: tensor([ -3.0248, -10.3863], dtype=torch.float64)**
-
+'''sh
+    (Part of the answers)
+    x0 = [2.0, 2.0]
+    Value v(0,x) = 2.3822**
+    Mean control: tensor([ -2.5540, -10.3992], dtype=torch.float64)
+    Sampled control: tensor([ -3.0248, -10.3863], dtype=torch.float64)
+'''
 - **Output Graphs**
   - **See plot_1-Exercise 2 in the left-hand folder**
-
 4. **Conclusion**
   All you need to do is either click the Run button directly in codespace to get the values and images, or save the code locally and run it directly to get the results.
 
