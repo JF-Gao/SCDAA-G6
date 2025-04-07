@@ -6,7 +6,22 @@ import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
 
+# Define problem parameters from project spec
+H = [[0.5, 0.5], [0.0, 0.5]]      # Drift matrix for state
+M = [[1.0, 1.0], [0.0, 1.0]]      # Control influence matrix
+sigma = np.eye(2) * 0.5           # Diffusion coefficient (noise strength)
+C = [[1.0, 0.1], [0.1, 1.0]]      # Running cost for state
+D = [[1.0, 0.1], [0.1, 1.0]]
+D = (np.array(D) * 0.1).tolist()  # Running cost for control (set to Identity)
+R = [[1.0, 0.3], [0.3, 1.0]]
+R = (np.array(R) * 10.0).tolist() # Terminal cost
+T = 0.5         # Terminal time
+N = 1000        # Number of time steps
+tau = 0.1       # Entropy regularization parameter
+gamma = 10.0    # Control noise variance
+
 ### Exercise 1.1 
+
 class StrictLQR:
     def __init__(self, H, M, sigma, C, D, R, T, N):
         """
@@ -137,6 +152,7 @@ class StrictLQR:
     
 
 ### Exercise 1.2
+
 class LQRMonteCarlo(StrictLQR):
     def simulate(self, x0, num_samples, time_steps):
         """
@@ -224,6 +240,7 @@ class LQRMonteCarlo(StrictLQR):
 
 
 ### Exercise 2
+
 class SoftLQR:
     def __init__(self, H, M, sigma, C, D, R, T, N, tau, gamma):
         # Define dynamics and cost matrices
@@ -340,5 +357,3 @@ class SoftLQR:
             print(f"Mean control: {mean_control}")
             print(f"Sampled control: {sampled_control}")
 
-
-### Exercise 3
