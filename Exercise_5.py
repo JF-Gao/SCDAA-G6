@@ -172,6 +172,9 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+# Save images to the left folder for review
+plt.savefig("plot_1-Exercise 5.png")
+
 # === Trajectory plot ===
 def plot_strict_vs_actor_trajectories(actor_net):
     x0_list = [
@@ -211,6 +214,9 @@ def plot_strict_vs_actor_trajectories(actor_net):
     plt.suptitle("Strict vs Actor Trajectories")
     plt.tight_layout()
     plt.show()
+
+    # Save images to the left folder for review
+    plt.savefig("plot_2-Exercise 5.png")
 
 plot_strict_vs_actor_trajectories(actor)
 
