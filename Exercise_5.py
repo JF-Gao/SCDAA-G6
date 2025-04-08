@@ -102,7 +102,7 @@ opt_critic = optim.Adam(critic.parameters(), lr=1e-3)
 opt_actor = optim.Adam(actor.parameters(), lr=1e-3)
 
 loss_log = []
-batch_size = 32
+batch_size = 8
 
 for step in range(2000):
     total_critic_loss = 0.0
